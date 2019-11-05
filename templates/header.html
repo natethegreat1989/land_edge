@@ -26,16 +26,27 @@
       <!-- Navbar Menu -->
       <div id="navbarcollapse" class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
-          {% if request.user.is_authenticated %}
+          {% if user.is_authenticated %}
           <li class="nav-item"><a href="{% url 'post-create' %}" class="nav-link ">Create Product</a>
           </li>
           {% endif %}
           <li class="nav-item"><a href="/" class="nav-link ">Home</a>
           </li>
+          <li class="nav-item"><a href="#" class="nav-link ">About</a>
+          </li>
           <li class="nav-item"><a href="/blog" class="nav-link active ">Products</a>
           </li>
           <li class="nav-item"><a href="#" class="nav-link ">Contact</a>
           </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link ">Logout</a>
+          </li>
+          {% else %}
+          <li class="nav-item"><a href="{% url 'login' %}" class="nav-link ">Login</a>
+          </li>
+          <li class="nav-item"><a href="{% url 'register' %}" class="nav-link ">Register</a>
+          </li>
+          {% endif %}
         </ul>
         <div class="navbar-text"><a href="#" class="search-btn"><i class="icon-search-1"></i></a></div>
       </div>
