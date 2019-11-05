@@ -2,6 +2,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from users import views as user_views
 
 from posts.views import (
     index, blog, post, search,
@@ -9,7 +10,8 @@ from posts.views import (
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index),
+    path('register/', user_views.register, name='register'),
+    path('', index, name='blog-home'),
     path('blog/', blog, name='post-list'),
     path('search/', search, name='search'),
     path('create/', post_create, name='post-create'),
