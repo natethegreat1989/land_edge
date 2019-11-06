@@ -36,7 +36,7 @@
         {% for object in object_list %}
         <div class="row d-flex align-items-stretch">
           {% if not forloop.first and not forloop.last %}
-          <div class="image col-lg-5"><img src="{{ obj.thumbnail.url }}" alt="..."></div>
+          <div class="image col-lg-5"><img src="{{ post.author.profile.image.url }}" alt="..."></div>
           {% endif %}
           <div class="text col-lg-7">
             <div class="text-inner d-flex align-items-center">
@@ -50,7 +50,7 @@
                 </header>
                 <p>{{ object.overview|truncatechars:200 }}</p>
                 <footer class="post-footer d-flex align-items-center"><a href="#" class="author d-flex align-items-center flex-wrap">
-                    <div class="avatar"><img src="{{ object.author.profile_picture.url }}" alt="..." class="img-fluid"></div>
+                    <div class="avatar"><img src="{{ post.author.profile.image.url }}" alt="..." class="img-fluid"></div>
                     <div class="title"><span>{{ object.author }}</span></div></a>
                   <div class="date"><i class="icon-clock"></i> {{ object.timestamp|timesince }} ago</div>
                   <div class="comments"><i class="icon-comment"></i>{{ object.comment_count }}</div>
